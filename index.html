@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jarett Poliner — research in machine learning for physical systems, computational mechanics, and scientific modeling.">
+  <title>Jarett Poliner | Research</title>
+  <style>
+    :root { --ink:#25313c; --muted:#5d6d78; --accent:#226c80; --line:#dce4e6; --paper:#fcfdfd; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+    .wrap { max-width:890px; margin:auto; padding:58px 28px 70px; }
+    header { display:grid; grid-template-columns:1fr 174px; gap:42px; align-items:center; }
+    h1 { margin:0 0 5px; font:600 37px/1.2 Georgia,serif; letter-spacing:-.8px; }
+    h2 { font:600 24px/1.25 Georgia,serif; margin:47px 0 16px; padding-bottom:9px; border-bottom:1px solid var(--line); }
+    h3 { margin:0 0 5px; font-size:17px; font-weight:650; line-height:1.5; }
+    p { margin:9px 0 12px; } .sub { color:var(--muted); margin:0 0 17px; }
+    .photo { width:174px; height:174px; object-fit:cover; border-radius:5px; filter:saturate(.82); }
+    .links { display:flex; gap:16px; flex-wrap:wrap; margin-top:15px; font-size:14px; font-weight:600; }
+    .news { display:grid; grid-template-columns:105px 1fr; gap:10px 17px; margin:0; }
+    .news dt { color:var(--accent); font-size:14px; font-weight:650; } .news dd { margin:0; }
+    .project { display:grid; grid-template-columns:155px 1fr; gap:22px; padding:18px 0; border-bottom:1px solid #ebeff0; }
+    .project:last-child { border-bottom:0; }
+    .art { height:110px; border-radius:4px; background:#e5eff0; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .art svg { width:100%; height:100%; }
+    .project p { margin:4px 0 0; font-size:15px; color:#465761; }
+    .pub { margin:0 0 19px; } .pub-title { font-weight:650; } .pub-meta { color:var(--muted); font-size:14px; }
+    footer { margin-top:55px; padding-top:15px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    @media(max-width:610px) { .wrap { padding:31px 21px 50px; } header { grid-template-columns:1fr 108px; gap:15px; align-items:start; } .photo { width:108px; height:108px; } h1 { font-size:30px; } .project { grid-template-columns:1fr; gap:9px; } .art { width:165px; } .news { grid-template-columns:85px 1fr; } }
+  </style>
+</head>
+<body><main class="wrap">
+  <header>
+    <div>
+      <h1>Jarett Poliner</h1>
+      <p class="sub">Postdoctoral Research Associate · Los Alamos National Laboratory</p>
+      <p>I develop machine learning methods for understanding and simulating physical systems from limited observations. My research spans generative modeling of material microstructures, learned representations of physical geometry and dynamics, and multimodal forecasting under partial observability.</p>
+      <p>I received my PhD in Civil Engineering and Engineering Mechanics from <a href="https://www.columbia.edu/">Columbia University</a> in 2025. My doctoral research focused on generative modeling with sparse data for solid mechanics.</p>
+      <nav class="links" aria-label="External links">
+        <a href="https://github.com/jsp2195">GitHub</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <!-- Add verified email, CV, Scholar and LinkedIn URLs here. -->
+      </nav>
+    </div>
+    <img class="photo" src="https://avatars.githubusercontent.com/u/31751438?v=4" alt="Jarett Poliner GitHub profile photograph">
+  </header>
+
+  <section aria-labelledby="news-title"><h2 id="news-title">News</h2>
+    <dl class="news">
+      <dt>Oct 2026</dt><dd>Our work on deep generative graphs for topology-preserved polymer-bonded explosive microstructures was published in <em>Engineering with Computers</em>.</dd>
+      <dt>Oct 2025</dt><dd>Started as a Postdoctoral Research Associate at Los Alamos National Laboratory.</dd>
+      <dt>2025</dt><dd>Completed my PhD at Columbia University.</dd>
+    </dl>
+  </section>
+
+  <section id="research" aria-labelledby="research-title"><h2 id="research-title">Research</h2>
+    <article class="project">
+      <div class="art" aria-hidden="true"><svg viewBox="0 0 155 110"><rect width="155" height="110" fill="#e6eff0"/><g fill="#75a6b0" stroke="#3a7180" stroke-width="1.2"><circle cx="29" cy="36" r="14"/><circle cx="63" cy="23" r="12"/><circle cx="96" cy="39" r="18"/><circle cx="132" cy="26" r="13"/><circle cx="24" cy="79" r="17"/><circle cx="62" cy="72" r="16"/><circle cx="103" cy="82" r="14"/><circle cx="136" cy="70" r="16"/></g><g stroke="#fff" stroke-opacity=".65"><path d="M29 36 63 23 96 39 132 26M24 79 62 72 103 82 136 70M29 36 24 79M63 23 62 72M96 39 103 82"/></g></svg></div>
+      <div><h3>Generative modeling of complex materials</h3><p>Learning particle morphology, spatial arrangement, and topology from limited three-dimensional experimental data to generate representative material structures for downstream physics simulations.</p></div>
+    </article>
+    <article class="project">
+      <div class="art" aria-hidden="true"><svg viewBox="0 0 155 110"><rect width="155" height="110" fill="#e6eff0"/><g fill="none" stroke="#438295" stroke-width="1.4"><path d="M0 90Q25 49 52 75T103 48T155 23"/><path d="M0 103Q25 62 52 88T103 61T155 36" opacity=".5"/><path d="M0 77Q25 36 52 62T103 35T155 10" opacity=".45"/></g><g fill="#c88b5b"><circle cx="19" cy="66" r="4"/><circle cx="52" cy="75" r="4"/><circle cx="92" cy="54" r="4"/><circle cx="130" cy="32" r="4"/></g></svg></div>
+      <div><h3>Learning physical dynamics from sparse observations</h3><p>Developing data-driven models that combine incomplete sensor measurements, contextual information, and physical structure for state estimation and forecasting, including urban traffic systems.</p></div>
+    </article>
+    <article class="project">
+      <div class="art" aria-hidden="true"><svg viewBox="0 0 155 110"><rect width="155" height="110" fill="#e6eff0"/><g fill="none" stroke="#4d8792"><ellipse cx="78" cy="58" rx="48" ry="27"/><ellipse cx="78" cy="58" rx="35" ry="38" transform="rotate(35 78 58)"/><ellipse cx="78" cy="58" rx="35" ry="38" transform="rotate(-35 78 58)"/></g><g fill="#c48355"><circle cx="42" cy="41" r="3"/><circle cx="96" cy="38" r="3"/><circle cx="115" cy="73" r="3"/><circle cx="65" cy="86" r="3"/></g></svg></div>
+      <div><h3>Physics-aware generative models</h3><p>Using probabilistic and generative learning to construct constitutive descriptions and physical representations from sparse data while respecting mechanical constraints.</p></div>
+    </article>
+  </section>
+
+  <section id="publications" aria-labelledby="publications-title"><h2 id="publications-title">Selected Publications</h2>
+    <div class="pub"><a class="pub-title" href="https://doi.org/10.1007/s00366-026-02445-8">Deep generative graphs for synthesizing microstructure of topology-preserved polymer-bonded explosives</a><div class="pub-meta">Engineering with Computers · 2026</div></div>
+    <div class="pub"><span class="pub-title">A Generative Framework for Constructing Strength Models of Structured Materials from Sparse Data</span><div class="pub-meta">Manuscript under review</div></div>
+    <p class="sub">Additional publications and author lists will be added after verification.</p>
+  </section>
+  <footer>© <span id="year">2026</span> Jarett Poliner · Built as a static website for GitHub Pages.</footer>
+</main><script>document.getElementById('year').textContent=new Date().getFullYear();</script></body></html>
