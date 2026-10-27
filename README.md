@@ -7,7 +7,7 @@ Static HTML and CSS, plus one small script for the figure lightbox. There is no 
 
 ```
 index.html                 the page
-jarett-poliner-resume.pdf  public résumé, linked from the header
+jarett-poliner-resume.pdf  public resume, linked from the header
 assets/css/site.css        all styles (light theme, responsive at 700px)
 assets/js/site.js          figure lightbox using <dialog>; figures still display without it
 assets/img/                figures (WebP), publication thumbnail, portrait, favicon, social-preview card
