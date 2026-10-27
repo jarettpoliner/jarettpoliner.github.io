@@ -11,7 +11,7 @@
   <meta property="og:title" content="Jarett Poliner · Machine Learning for Physical Systems">
   <meta property="og:description" content="Generative modeling, geometric representations, and learned dynamics for physical systems observed through sparse data.">
   <meta property="og:url" content="https://jarettpoliner.github.io/">
-  <meta property="og:image" content="https://jarettpoliner.github.io/assets/img/og-preview.jpg">
+  <meta property="og:image" content="https://jarettpoliner.github.io/assets/img/og-card.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/css/site.css">
   <script type="application/ld+json">
@@ -43,11 +43,11 @@
       <p class="tagline">Machine learning for physical systems: reconstructing, representing, and simulating complex physical worlds from sparse observations.</p>
     </div>
     <div class="bio">
-      <p>I am a postdoctoral research associate at <a href="https://www.lanl.gov/">Los Alamos National Laboratory</a>. I develop machine learning methods for physical systems that can only be partly observed: granular and polymer-bonded materials imaged by micro-CT, plastic solids characterized by a handful of experiments, and urban traffic networks with sparse, unevenly placed sensors. My work combines generative models of 3D microstructure, geometric representations that turn point samples into simulation-ready geometry, and learned models of dynamics that forecast when observations are missing. I care about evaluation as much as modeling: comparing generated structures against measured statistics, and reporting where a method falls short as clearly as where it works.</p>
+      <p>I am a postdoctoral research associate at <a href="https://www.lanl.gov/">Los Alamos National Laboratory</a>. I develop machine learning methods for physical systems that can only be partly observed: granular and particle-based materials imaged by micro-CT, plastic solids characterized by a handful of experiments, and urban traffic networks with sparse, unevenly placed sensors. My work combines generative models of 3D microstructure, geometric representations that turn point samples into simulation-ready geometry, and learned models of dynamics that forecast when observations are missing. I care about evaluation as much as modeling: comparing generated structures against measured statistics, and reporting where a method falls short as clearly as where it works.</p>
       <p>I received my PhD in Civil Engineering and Engineering Mechanics from <a href="https://www.columbia.edu/">Columbia University</a> in 2025, advised by <a href="https://www.poromechanics.org/">Prof. WaiChing Sun</a>.</p>
     </div>
     <ul class="links">
-      <li><a class="cv" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+      <li><a class="cv" href="jarett-poliner-resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
       <li><a href="https://scholar.google.com/citations?user=Sms4PvoAAAAJ&amp;hl=en">Google Scholar</a></li>
       <li><a href="https://github.com/jarettpoliner">GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/jarettpoliner/">LinkedIn</a></li>
@@ -65,8 +65,6 @@
   <section id="news" aria-labelledby="news-h">
     <h2 id="news-h">News</h2>
     <ul class="news">
-      <li><time datetime="2026-10">Oct 2026</time><span>Our paper on <a href="https://doi.org/10.1007/s00366-026-02445-8">deep generative graphs for topology-preserved polymer-bonded explosive microstructures</a> is published in <em>Engineering with Computers</em>.</span></li>
-      <li><time datetime="2026-02">Feb 2026</time><span>Released an open <a href="https://doi.org/10.5281/zenodo.18676484">dataset of 100 generated PBX microstructure subdomains</a> (watertight STL meshes, CC BY 4.0) on Zenodo.</span></li>
       <li><time datetime="2025-11">Nov 2025</time><span><a href="https://doi.org/10.1016/j.cma.2025.118310">Geometric learning for computational mechanics Part IV</a>, on mesh-based plasticity with a generative yield-surface model, appears in <em>Computer Methods in Applied Mechanics and Engineering</em>.</span></li>
       <li><time datetime="2025-10">Oct 2025</time><span>Started as a Postdoctoral Research Associate at Los Alamos National Laboratory.</span></li>
       <li><time datetime="2025-08">Aug 2025</time><span>Completed my PhD at Columbia University. Dissertation: <em>Generative Modeling with Sparse Data for Solid Mechanics</em>.</span></li>
@@ -75,50 +73,31 @@
 
   <section id="research" aria-labelledby="research-h">
     <h2 id="research-h">Research</h2>
-    <p class="lede">A common thread runs through my projects: the physical system is only partially observed, and the useful output is a complete, physically usable state, such as a full 3D microstructure, a closed yield surface, or a forecast at every location in a network. I approach this through generative models that capture what plausible states look like, and through representations (graphs, point clouds, meshes) that keep the result usable by downstream solvers.</p>
+    <p class="lede"><b>Learning to reconstruct, represent, and simulate physical systems from sparse observations.</b> In each project below the system is only partly observed: a few CT scans of a granular material, a handful of yield points, or traffic sensors that cover some roads some of the time. I build generative models of what complete states look like, geometric representations (meshes, spherical harmonics, graphs) that keep those states usable by simulation, and forecasting models that stay reliable when observations are missing. Each section says what has been demonstrated and what has not.</p>
 
     <article class="project" aria-labelledby="r1">
       <div class="project-head">
         <span class="project-num">01</span>
-        <h3 id="r1">Generative modeling of material microstructures</h3>
-        <span class="status published">Published</span>
+        <h3 id="r1">Generative Modeling of 3D Material Structures</h3>
+        <span class="status ongoing">Ongoing</span>
       </div>
-      <figure class="fig">
-        <button class="zoom" type="button" data-full="assets/img/pbx-pipeline-1800.webp" aria-label="Enlarge figure: three-stage microstructure generation pipeline">
-          <img src="assets/img/pbx-pipeline-900.webp" srcset="assets/img/pbx-pipeline-900.webp 900w, assets/img/pbx-pipeline-1800.webp 1800w" sizes="(max-width: 52rem) 100vw, 50rem" width="900" height="323" alt="Three 3D panels joined by arrows: a generated graph of grains with colored nodes and grey edges; the same grains as colored oriented bounding boxes; and the grains as colored 3D surface meshes linked by the graph edges.">
-        </button>
-        <figcaption><b>Topology first, then geometry.</b> A graph model generates the grain network with each grain's position, size, orientation, and roughness (1). These attributes define a bounding box per grain (2), and a conditional diffusion model generates a 3D grain shape consistent with each box (3). Adapted from Fig. 1 of Poliner et al., <em>Engineering with Computers</em> (2026).</figcaption>
-      </figure>
-      <p>Simulating how heterogeneous materials respond to loading requires many realistic 3D microstructures, but micro-CT scans are slow and expensive to obtain. I split microstructure synthesis into two coupled generative problems. An autoregressive graph model, adapted from GraphRNN, generates the grain-contact network. A conditional latent diffusion model then generates each grain's surface as a point cloud, which is meshed into watertight geometry. Using synchrotron micro-CT of a mock polymer-bonded explosive, the paper compares generated and scanned grains on shape, size, and orientation statistics, and generated and measured grain networks on graph-topology statistics.</p>
-      <figure class="fig" style="margin-top:1.1rem">
-        <button class="zoom" type="button" data-full="assets/img/pbx-real-vs-generated-1800.webp" aria-label="Enlarge figure: micro-CT grains compared with generated grains">
-          <img src="assets/img/pbx-real-vs-generated-900.webp" srcset="assets/img/pbx-real-vs-generated-900.webp 900w, assets/img/pbx-real-vs-generated-1800.webp 1800w" sizes="(max-width: 52rem) 100vw, 50rem" width="900" height="420" loading="lazy" alt="Two four-by-four grids of single-grain point clouds, each inside a red oriented bounding box. Left grid in blue: grains segmented from micro-CT. Right grid in orange: grains generated by the model.">
-        </button>
-        <figcaption><b>Measured vs. generated grains.</b> Unpaired samples of grains segmented from micro-CT (blue) and grains generated by the conditional diffusion model (orange), each shown with its oriented bounding box. From Fig. 11 of the paper.</figcaption>
-      </figure>
-      <p class="meta"><a href="https://doi.org/10.1007/s00366-026-02445-8">Paper</a> · <a href="https://github.com/jarettpoliner/Synthetic_PBX">Code</a> · <a href="https://doi.org/10.5281/zenodo.18676484">Dataset (Zenodo, CC BY 4.0)</a></p>
+      <p>Granular and particle-based materials owe their mechanical response to two coupled structures: how the particles are packed and the shape of each particle. Simulation studies need many realistic 3D microstructures, but micro-CT scans are slow and expensive to obtain. My doctoral work generated such microstructures in two steps: a graph model of the particle-contact network, then a conditional latent diffusion model of each particle's shape. Current work extends this to full 3D assemblies, coupling multiscale graph generation with generation of a surface mesh for every particle. The extension is ongoing, with manuscripts in preparation.</p>
     </article>
 
     <article class="project" aria-labelledby="r2">
       <div class="project-head">
         <span class="project-num">02</span>
-        <h3 id="r2">Geometric reconstruction and super-resolution</h3>
+        <h3 id="r2">Geometric Learning and Reconstruction</h3>
         <span class="status ongoing">Ongoing</span>
       </div>
-      <figure class="fig">
-        <button class="zoom" type="button" data-full="assets/img/pbx-pointcloud-mesh-voxel-1800.webp" aria-label="Enlarge figure: point cloud to mesh to voxel conversion">
-          <img src="assets/img/pbx-pointcloud-mesh-voxel-900.webp" srcset="assets/img/pbx-pointcloud-mesh-voxel-900.webp 900w, assets/img/pbx-pointcloud-mesh-voxel-1800.webp 1800w" sizes="(max-width: 52rem) 100vw, 50rem" width="900" height="270" loading="lazy" alt="Three panels of the same assembly of about fifteen grains: as orange point clouds, as Poisson-reconstructed triangle meshes, and as a voxel grid.">
-        </button>
-        <figcaption><b>From point samples to simulation-ready geometry.</b> A generated point-cloud assembly (left) is converted to watertight surface meshes by Poisson reconstruction (center) and to a structured voxel grid for simulation (right). From Fig. 10 of Poliner et al., <em>Engineering with Computers</em> (2026). Results from the ongoing work below will be shown once they are published.</figcaption>
-      </figure>
-      <p>Physics solvers need closed, consistent geometry, while scans and generative models usually provide partial or sparse point samples. At Los Alamos I am extending the published pipeline from individual grains to full particle assemblies. One direction uses graph autoencoders that compress a granular packing into a latent representation and reconstruct it. The other is <em>packing super-resolution</em>: a coarse packing is refined by generating smaller particles conditioned on the voids they must fill, under physical constraints such as no interpenetration between contacting grains. Both are ongoing, with manuscripts in preparation.</p>
+      <p>Learning on granular materials needs representations that are compact enough to model yet faithful to the measured geometry. I work with three: surface meshes, spherical-harmonic shape descriptors, and particle graphs whose edges encode contacts. On these I am developing graph autoencoders and conditional super-resolution models that recover fine particle assemblies from coarse or incomplete descriptions, for completing partial scans and moving between scales. This work is ongoing, and results will appear here once they are published.</p>
     </article>
 
     <article class="project" aria-labelledby="r3">
       <div class="project-head">
         <span class="project-num">03</span>
-        <h3 id="r3">Learning physical dynamics from sparse observations</h3>
-        <span class="status ongoing">Ongoing</span>
+        <h3 id="r3">Learning Dynamics from Sparse Observations</h3>
+        <span class="status ongoing">Manuscript in preparation</span>
       </div>
       <figure class="fig schematic" aria-label="Schematic illustration of traffic forecasting under partial observability">
         <span class="schem-tag">Schematic</span>
@@ -173,29 +152,23 @@
         </ul>
         <figcaption><b>Schematic illustration, not data.</b> Speeds are available at only some locations and times. Additional locations and inputs are deliberately withheld so that the value of each information source can be measured. The model forecasts every link in the network, including links with no current observation.</figcaption>
       </figure>
-      <p>Real sensor networks are sparse and irregular, and the context that might help a forecast, such as incident reports or traffic-camera images, arrives in very different forms. With Prof. Xuan (Sharon) Di at Columbia, I study traffic forecasting under partial observability. We use a graph-based spatiotemporal model that combines speeds from moving probe vehicles with this auxiliary information. Its evaluation systematically withholds sensors and inputs to measure what each source actually adds, rather than only reporting aggregate accuracy. Experiments cover Manhattan, a Tokyo expressway network with incident labels, and the public METR-LA and PEMS-BAY benchmarks. A manuscript is in preparation.</p>
+      <p>City traffic is observed through sparse, irregular sensors: probe vehicles report speeds on some roads some of the time, while cameras and incident reports arrive as separate streams. With Prof. Xuan (Sharon) Di at Columbia, I develop graph-based spatiotemporal forecasting models that track which observations are available and how old they are, and that can include or exclude auxiliary sources at forecast time. The aim is to measure what each source adds beyond observed speeds rather than assume it helps. Experiments cover Manhattan, the Tokyo expressway network, and the public METR-LA and PEMS-BAY benchmarks. A manuscript is in preparation.</p>
     </article>
 
     <article class="project" aria-labelledby="r4">
       <div class="project-head">
         <span class="project-num">04</span>
-        <h3 id="r4">Physics-aware generative modeling</h3>
+        <h3 id="r4">Physics-Aware Generative Modeling</h3>
         <span class="status published">Published</span>
       </div>
       <figure class="fig">
-        <button class="zoom" type="button" data-full="assets/img/cma-yield-enrichment-1800.webp" aria-label="Enlarge figure: yield surface enrichment from sparse points">
-          <img src="assets/img/cma-yield-enrichment-900.webp" srcset="assets/img/cma-yield-enrichment-900.webp 900w, assets/img/cma-yield-enrichment-1800.webp 1800w" sizes="(max-width: 52rem) 100vw, 50rem" width="900" height="187" loading="lazy" alt="Three panels: a sparse scatter of yield points in stress space; a dense point cloud of yield points inferred by a diffusion model; and the resulting smooth, closed triangulated yield surface.">
+        <button class="zoom" type="button" data-full="assets/img/cma-piplane-runtime-1600.webp" aria-label="Enlarge figure: Stable stress updates">
+          <img src="assets/img/cma-piplane-runtime-900.webp" srcset="assets/img/cma-piplane-runtime-900.webp 900w, assets/img/cma-piplane-runtime-1600.webp 1600w" sizes="(max-width: 52rem) 100vw, 49rem" width="900" height="621" loading="lazy" alt="Six hexagonal maps of convergence time on the deviatoric plane. Top row, the mesh-based model: uniformly dark blue, meaning fast convergence everywhere. Bottom row, classical Newton–Raphson: red wedges near the hexagon corners, meaning slow convergence there. Columns correspond to perfect plasticity, linear hardening, and exponential hardening.">
         </button>
-        <figcaption><b>From a few yield points to a closed yield surface.</b> (a) Sparse yield states in stress space; (b) a dense set inferred by a conditional diffusion model trained on a database of yield surfaces; (c) the triangulated surface used by the solver. Reproduced from Xiao, Poliner &amp; Sun, <em>CMAME</em> 446 (2025) 118310, © 2025 Elsevier.</figcaption>
+        <figcaption><span class="fs published">Published</span> <b>Stable stress updates.</b> Time to converge for trial stress states across the π-plane of a Tresca-type yield surface under three hardening laws. The mesh-based update (top) is uniformly fast; classical Newton–Raphson return mapping (bottom) slows sharply near the corners of the surface. Reproduced from Xiao, Poliner &amp; Sun, <em>CMAME</em> 446 (2025) 118310, © 2025 Elsevier.</figcaption>
       </figure>
-      <p>Plasticity models are usually calibrated from only a few expensive experiments or simulations, and fitting a closed-form yield function to sparse data requires repeated trial and error. In our CMAME paper we instead let a latent diffusion model, trained on a library of yield surfaces, infer a dense and plausible surface from the measured yield points. We represent that surface as a mesh rather than an equation. A projection-based stress update designed for mesh-based surfaces then replaces the classical local return-mapping solve. On the paper's benchmarks, which range from classical plasticity models to discrete dislocation dynamics data for single-crystal copper, the update stays stable and runs in parallel. A companion paper (<em>Scientific Reports</em>, in press) turns this into experimental design: Bayesian active learning chooses which simulations to run, and a conditional diffusion model reconstructs the yield surface from the resulting limited data.</p>
-      <figure class="fig narrow" style="margin-top:1.1rem">
-        <button class="zoom" type="button" data-full="assets/img/cma-piplane-runtime-1600.webp" aria-label="Enlarge figure: convergence time maps on the pi plane">
-          <img src="assets/img/cma-piplane-runtime-900.webp" srcset="assets/img/cma-piplane-runtime-900.webp 900w, assets/img/cma-piplane-runtime-1600.webp 1600w" sizes="(max-width: 40rem) 100vw, 36rem" width="900" height="621" loading="lazy" alt="Six hexagonal maps of convergence time on the deviatoric plane. Top row, the mesh-based model: uniformly dark blue, meaning fast convergence everywhere. Bottom row, classical Newton–Raphson: red wedges near the hexagon corners, meaning slow convergence there. Columns correspond to perfect plasticity, linear hardening, and exponential hardening.">
-        </button>
-        <figcaption><b>Stable stress updates.</b> Time to converge for trial stress states across the π-plane of a Tresca-type yield surface under three hardening laws. The mesh-based update (top) is uniformly fast; classical Newton–Raphson return mapping (bottom) slows sharply near the corners of the surface. Reproduced from Xiao, Poliner &amp; Sun (2025), © 2025 Elsevier.</figcaption>
-      </figure>
-      <p class="meta"><a href="https://doi.org/10.1016/j.cma.2025.118310">Paper (CMAME 2025)</a> · <em>Scientific Reports</em> paper in press</p>
+      <p>Plasticity models are usually calibrated from a few expensive experiments, and fitting a closed-form yield function to sparse data takes repeated trial and error. In our CMAME paper, a latent diffusion model trained on a library of yield surfaces infers a dense, plausible surface from measured yield points. The surface is stored as a mesh rather than an equation, and a projection-based stress update replaces the classical return-mapping solve, which makes data-derived plasticity usable in finite-element codes. On the paper's benchmarks, from classical models to discrete-dislocation data for single-crystal copper, the update stays stable and runs in parallel. A companion manuscript on diffusion-based experimental design has been submitted.</p>
+      <p class="meta"><a href="https://doi.org/10.1016/j.cma.2025.118310">Paper (CMAME 2025)</a></p>
     </article>
   </section>
 
@@ -206,16 +179,7 @@
     <p class="pubs-sub">Journal articles</p>
     <ul class="pubs">
       <li class="pub">
-        <img class="thumb" src="assets/img/thumb-pbx.webp" width="480" height="360" loading="lazy" alt="Generated grain assembly: colored 3D grains connected by graph edges">
-        <div>
-          <a class="pub-title" href="https://doi.org/10.1007/s00366-026-02445-8">Deep generative graphs for synthesizing microstructure of topology-preserved polymer-bonded explosives</a>
-          <div class="authors"><span class="me">Jarett Poliner</span>, WaiChing Sun, Khalid A. Alshibli, Richard A. Regueiro</div>
-          <div class="venue"><em>Engineering with Computers</em> 42(6), 207 · 2026 · doi:10.1007/s00366-026-02445-8</div>
-          <div class="plinks"><a href="https://doi.org/10.1007/s00366-026-02445-8">Paper</a><a href="https://github.com/jarettpoliner/Synthetic_PBX">Code</a><a href="https://doi.org/10.5281/zenodo.18676484">Dataset</a></div>
-        </div>
-      </li>
-      <li class="pub">
-        <img class="thumb" src="assets/img/thumb-cma.webp" width="480" height="360" loading="lazy" alt="Reconstructed yield surface overlaid on its ground truth, shown as a triangulated mesh">
+        <img class="thumb" src="assets/img/thumb-cma.webp" width="480" height="360" loading="lazy" alt="Convergence-time map on the deviatoric plane for classical return mapping, with slow red wedges near the yield-surface corners">
         <div>
           <a class="pub-title" href="https://doi.org/10.1016/j.cma.2025.118310">Geometric learning for computational mechanics Part IV: Efficient mesh-based plasticity from a domain-specific foundation model</a>
           <div class="authors">Mian Xiao, <span class="me">Jarett Poliner</span>, WaiChing Sun</div>
@@ -223,12 +187,16 @@
           <div class="plinks"><a href="https://doi.org/10.1016/j.cma.2025.118310">Paper</a></div>
         </div>
       </li>
+    </ul>
+
+    <p class="pubs-sub">Submitted</p>
+    <ul class="pubs">
       <li class="pub">
-        <div class="thumb blank" aria-hidden="true">In press</div>
+        <div class="thumb blank" aria-hidden="true">Submitted</div>
         <div>
           <span class="pub-title">Conditional diffusion-based design of experiments for yield surface discovery with limited experimental data</span>
           <div class="authors"><span class="me">Jarett Poliner</span>, Joshua C. Crone, Eric C. Bryant, Kane C. Bennett, WaiChing Sun</div>
-          <div class="venue"><em>Scientific Reports</em> · in press</div>
+          <div class="venue">Submitted to <em>Scientific Reports</em></div>
         </div>
       </li>
     </ul>
@@ -274,13 +242,13 @@
       <li><span class="when">2025–</span><span class="what"><b>Postdoctoral Research Associate</b>, Los Alamos National Laboratory<span>Earth and Environmental Sciences Division. Generative and geometric models for granular materials.</span></span></li>
       <li><span class="when">2026–</span><span class="what"><b>Research collaborator</b>, Columbia University<span>Traffic forecasting under partial observability, with Prof. Xuan (Sharon) Di.</span></span></li>
       <li><span class="when">2019–2025</span><span class="what"><b>PhD, Civil Engineering and Engineering Mechanics</b>, Columbia University<span>Advisor: Prof. WaiChing Sun. NDSEG Fellow. Dissertation on generative modeling with sparse data for solid mechanics.</span></span></li>
-      <li><span class="when">2023</span><span class="what"><b>AFRL Scholar</b>, Air Force Research Laboratory, Munitions Directorate<span>Generative models and graph neural networks for pore-collapse void shapes in energetic materials.</span></span></li>
+      <li><span class="when">2023</span><span class="what"><b>AFRL Scholar</b>, Air Force Research Laboratory<span>Generative models and graph neural networks for predicting void shapes.</span></span></li>
       <li><span class="when">2019–2020</span><span class="what"><b>MS, Civil Engineering (2020)</b> and <b>BS, Engineering Mechanics (2019)</b>, Columbia University</span></li>
     </ul>
   </section>
 
   <footer>
-    <p>© 2026 Jarett Poliner. Research figures are reproduced from the publications cited in their captions; publisher copyright applies where noted.</p>
+    <p>© 2026 Jarett Poliner. Research figures are reproduced from the publications cited in their captions; publisher copyright applies where noted. The traffic panel is a schematic, not data.</p>
   </footer>
 </main>
 
