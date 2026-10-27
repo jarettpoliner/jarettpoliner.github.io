@@ -57,6 +57,7 @@
 
   <nav class="sections" aria-label="Sections">
     <a href="#news">News</a>
+    <a href="#selected">Selected Research</a>
     <a href="#research">Research</a>
     <a href="#publications">Publications</a>
     <a href="#background">Background</a>
@@ -69,6 +70,60 @@
       <li><time datetime="2025-10">Oct 2025</time><span>Started as a Postdoctoral Research Associate at Los Alamos National Laboratory.</span></li>
       <li><time datetime="2025-08">Aug 2025</time><span>Completed my PhD at Columbia University. Dissertation: <em>Generative Modeling with Sparse Data for Solid Mechanics</em>.</span></li>
     </ul>
+  </section>
+
+  <section id="selected" aria-labelledby="selected-h">
+    <h2 id="selected-h">Selected Research</h2>
+    <p class="lede">Recent results from ongoing projects (October 2026): learned geometric representations of granular materials and traffic forecasting from sparse, multimodal observations. These results have not been peer reviewed; each caption states what has been demonstrated and what has not. Published work is listed under <a href="#research">Research</a> and <a href="#publications">Publications</a>.</p>
+
+    <article class="project" aria-labelledby="s3">
+      <div class="project-head">
+        <h3 id="s3">Particle geometry as graphs and spherical harmonics</h3>
+        <span class="status ongoing">Ongoing · unpublished</span>
+      </div>
+      <p>Learned models of granular materials need a representation that is compact yet faithful to measured geometry. CT surface meshes are converted to spherical-harmonic shape descriptors and to particle graphs whose edges are inferred contacts; at degree 8 the fitted shapes stay within 2.7% of the grain radius (median surface distance).</p>
+      <figure class="fig wide">
+        <button class="zoom" type="button" data-full="assets/img/research/mesh-harmonics-graph-1800.webp" aria-label="Enlarge figure: Mesh → spherical harmonics → graph">
+          <img src="assets/img/research/mesh-harmonics-graph-1200.webp" srcset="assets/img/research/mesh-harmonics-graph-600.webp 600w, assets/img/research/mesh-harmonics-graph-1200.webp 1200w, assets/img/research/mesh-harmonics-graph-1800.webp 1800w" sizes="(max-width: 64rem) 100vw, 62rem" width="1200" height="313" loading="lazy" alt="Three views of the same 52 colored sand grains: rough CT surface meshes, smoothed spherical-harmonic shapes, and a ball-and-stick graph with one sphere per grain and lines for contacts.">
+        </button>
+        <figcaption><span class="fs data">Data representation</span> <b>Mesh → spherical harmonics → graph.</b> (a) CT surface meshes of 52 grains; (b) spherical-harmonic fits at degree L = 8; (c) the particle graph, one node per grain. Data: 3D-printed replicas of a single Hostun sand grain (public, Mendeley Data). No learned model is involved.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-full="assets/img/research/packing-contact-graph-1800.webp" aria-label="Enlarge figure: A whole packing as a graph">
+          <img src="assets/img/research/packing-contact-graph-1200.webp" srcset="assets/img/research/packing-contact-graph-600.webp 600w, assets/img/research/packing-contact-graph-1200.webp 1200w, assets/img/research/packing-contact-graph-1800.webp 1800w" sizes="(max-width: 52rem) 100vw, 49rem" width="1200" height="448" loading="lazy" alt="A cylindrical packing of grey grains beside the same packing drawn as a dense network of grey spheres and lines.">
+        </button>
+        <figcaption><span class="fs data">Data representation</span> <b>A whole packing as a graph.</b> All 1,652 grains of the same packing (left) and the 5,285 inferred contacts between them (right); the dashed box marks the window shown above.</figcaption>
+      </figure>
+    </article>
+
+    <article class="project" aria-labelledby="s4">
+      <div class="project-head">
+        <h3 id="s4">Traffic forecasting from sparse, multimodal observations</h3>
+        <span class="status ongoing">Manuscript in preparation</span>
+      </div>
+      <p>With Prof. Xuan (Sharon) Di at Columbia. The forecasting model encodes each observation with its availability and age, and can include or exclude camera and incident inputs at forecast time, so the value of each source can be measured directly. The two study areas sit at opposite ends of observability.</p>
+      <figure class="fig wide">
+        <button class="zoom" type="button" data-full="assets/img/research/traffic-observation-regimes-1800.webp" aria-label="Enlarge figure: Two observation regimes">
+          <img src="assets/img/research/traffic-observation-regimes-1200.webp" srcset="assets/img/research/traffic-observation-regimes-600.webp 600w, assets/img/research/traffic-observation-regimes-1200.webp 1200w, assets/img/research/traffic-observation-regimes-1800.webp 1800w" sizes="(max-width: 64rem) 100vw, 62rem" width="1200" height="733" loading="lazy" alt="Two maps. Left: Manhattan street network shaded blue by observation frequency, with green camera triangles and orange collision dots concentrated in Midtown. Right: Tokyo expressway network with orange dots for accident locations.">
+        </button>
+        <figcaption><span class="fs dev">Manuscript figure · unpublished</span> <b>Two observation regimes.</b> (a) Manhattan: road links shaded by how often a probe vehicle reported a speed in each 10-minute bin, with traffic cameras and collisions; coverage is sparse and uneven. (b) Tokyo Metropolitan Expressway: near-complete speed coverage with accident locations (public EXPY-TKY data). Manhattan probe data © Creative Mobile Technologies.</figcaption>
+      </figure>
+      <figure class="fig wide">
+        <button class="zoom" type="button" data-full="assets/img/research/traffic-incident-forecasts-1800.webp" aria-label="Enlarge figure: What an incident report changes">
+          <img src="assets/img/research/traffic-incident-forecasts-1200.webp" srcset="assets/img/research/traffic-incident-forecasts-600.webp 600w, assets/img/research/traffic-incident-forecasts-1200.webp 1200w, assets/img/research/traffic-incident-forecasts-1800.webp 1800w" sizes="(max-width: 64rem) 100vw, 62rem" width="1200" height="843" loading="lazy" alt="Two rows of three charts, Tokyo and Manhattan. Speed on the incident link before and after onset with observed points, realized speed, and grey and orange forecast markers that nearly coincide; bar charts of absolute error with and without the report.">
+        </button>
+        <figcaption><span class="fs dev">Manuscript figure · unpublished</span> <b>What an incident report changes.</b> The same trained model forecasts speed on the incident link with the report switched off (grey) and on (orange), against the realized speed (black). Each domain shows the validation event with the median effect, a rule fixed in advance; there the report changes forecast error by only about 0.003 m/s. Validation data, shown for illustration.</figcaption>
+      </figure>
+      <div class="split">
+        <p>On the public METR-LA and PEMS-BAY benchmarks, whole sensors are withheld at test time. Training with 25% of sensors withheld reduces the extra error at unobserved sensors from +56% to +14% (METR-LA) and from +237% to +51% (PEMS-BAY) when a quarter of sensors remain. In Manhattan, incident reports change forecast error only slightly, and the pre-registered held-out comparison did not confirm an effect.</p>
+      <figure class="fig side">
+        <button class="zoom" type="button" data-full="assets/img/research/traffic-sensor-withholding-1018.webp" aria-label="Enlarge figure: Forecasting where there is no sensor">
+          <img src="assets/img/research/traffic-sensor-withholding-1018.webp" srcset="assets/img/research/traffic-sensor-withholding-600.webp 600w, assets/img/research/traffic-sensor-withholding-1018.webp 1018w" sizes="(max-width: 44rem) 100vw, 21rem" width="1018" height="1431" loading="lazy" alt="Two line charts of error increase on withheld sensors versus share of sensors observed. Black lines (clean training) rise to +55.8% on METR-LA and +237% on PEMS-BAY; blue lines (sparse training) stay near +14.3% and +50.9%.">
+        </button>
+        <figcaption><span class="fs dev">Manuscript figure · unpublished</span> <b>Forecasting where there is no sensor.</b> Error on withheld sensors relative to each model's own full-observation error, for the model trained on complete data (black) and with 25% of sensors withheld (blue). Means over 3 seeds × 5 masks; bands show the min–max range.</figcaption>
+      </figure>
+      </div>
+    </article>
   </section>
 
   <section id="research" aria-labelledby="research-h">
@@ -247,7 +302,7 @@
   </section>
 
   <footer>
-    <p>© 2026 Jarett Poliner. Research figures are reproduced from the publications cited in their captions; publisher copyright applies where noted. The traffic panel is a schematic, not data.</p>
+    <p>© 2026 Jarett Poliner. Research figures are reproduced from the publications cited in their captions; publisher copyright applies where noted. The traffic panel under Research is a schematic, not data. Figures under Selected Research come from ongoing, unpublished work and credit their data sources in the captions.</p>
   </footer>
 </main>
 
