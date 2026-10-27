@@ -74,7 +74,21 @@
 
   <section id="selected" aria-labelledby="selected-h">
     <h2 id="selected-h">Selected Research</h2>
-    <p class="lede">Recent results from ongoing projects (October 2026): learned geometric representations of granular materials and traffic forecasting from sparse, multimodal observations. These results have not been peer reviewed; each caption states what has been demonstrated and what has not. Published work is listed under <a href="#research">Research</a> and <a href="#publications">Publications</a>.</p>
+    <p class="lede">Recent results from ongoing projects (October 2026): generative modeling and learned geometric representations of granular materials, and traffic forecasting from sparse, multimodal observations. These results have not been peer reviewed; each caption states what has been demonstrated and what has not. Published work is listed under <a href="#research">Research</a> and <a href="#publications">Publications</a>.</p>
+
+    <article class="project" aria-labelledby="s1">
+      <div class="project-head">
+        <h3 id="s1">Graph-to-mesh generation of granular assemblies</h3>
+        <span class="status ongoing">Ongoing · unpublished</span>
+      </div>
+      <p>A graph model refines a coarse, 12-cluster description of a packing into 100 particles with positions, sizes and shape descriptors, and a shape generator builds a surface mesh for every particle. The measured and generated assemblies below share the coarse description, not individual grains.</p>
+      <figure class="fig wide">
+        <button class="zoom" type="button" data-full="assets/img/research/assembly-graph-to-mesh-1338.webp" aria-label="Enlarge figure: Measured vs. generated assembly">
+          <img src="assets/img/research/assembly-graph-to-mesh-1200.webp" srcset="assets/img/research/assembly-graph-to-mesh-600.webp 600w, assets/img/research/assembly-graph-to-mesh-1200.webp 1200w, assets/img/research/assembly-graph-to-mesh-1338.webp 1338w" sizes="(max-width: 64rem) 100vw, 62rem" width="1200" height="883" loading="lazy" alt="Two-by-two grid. Top row, measured: a ball-and-stick contact graph of about 100 grains and the same grains as rough colored surface meshes. Bottom row, generated: a similar graph with dashed red lines and a cluster of generated rough grain meshes in matching colors.">
+        </button>
+        <figcaption><span class="fs dev">Development result · not qualified</span> <b>Measured vs. generated assembly.</b> Top: 100 crushed-quartz grains from X-ray CT, shown as a contact graph and as surface meshes (data: Lee, Kuwik &amp; Hurley, 2025, CC BY 4.0). Bottom: a generated realization. Colors mark coarse clusters; red dashed lines flag overlapping particle pairs. The generated meshes are open surfaces and do not yet pass the mesh-quality check.</figcaption>
+      </figure>
+    </article>
 
     <article class="project" aria-labelledby="s3">
       <div class="project-head">
